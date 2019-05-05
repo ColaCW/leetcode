@@ -7,7 +7,7 @@ import java.util.Stack;
 public class leetcodeUtil {
 
     //两数之和
-    public static int[] twoSum(int[] nums, int target) {
+    public  int[] twoSum(int[] nums, int target) {
         for(int i = 0;i<nums.length-1;i++){
             for(int j = i+1;j<nums.length;j++){
                 if(nums[i] + nums[j] == target){
@@ -19,7 +19,7 @@ public class leetcodeUtil {
     }
 
     //整数反转
-    public static int reverse(int x) {
+    public  int reverse(int x) {
         StringBuffer sb = new StringBuffer(String.valueOf(x));
         sb = sb.reverse();
         if(sb.toString().indexOf("-") != -1){
@@ -38,7 +38,7 @@ public class leetcodeUtil {
     }
 
     //回文数
-    public static boolean isPalindrome(int x) {
+    public  boolean isPalindrome(int x) {
         //直接转为字符串
         StringBuffer sb = new StringBuffer(String.valueOf(x));
         return sb.toString().equals(sb.reverse().toString());
@@ -56,7 +56,7 @@ public class leetcodeUtil {
     }
 
     //罗马数字转整数
-    public static int romanToInt(String s) {
+    public  int romanToInt(String s) {
         int num = 0;
         if(s.indexOf("IV") != -1){
             s = s.replaceAll("IV",",4");
@@ -95,7 +95,7 @@ public class leetcodeUtil {
     }
 
     //最长公共前缀
-    public static String longestCommonPrefix(String[] strs) {
+    public  String longestCommonPrefix(String[] strs) {
         if(strs.length == 1){
             return  strs[0];
         }else if(strs.length > 1){
@@ -124,7 +124,7 @@ public class leetcodeUtil {
     }
 
     //有效的括号
-    public static boolean isValid(String s) {
+    public  boolean isValid(String s) {
         if(!s.equals("")){
             if(s.length()%2 != 0){
                 return false;
@@ -169,8 +169,14 @@ public class leetcodeUtil {
         return true;
     }
 
-    public static void main(String[] args) {
+    public int removeDuplicates(int[] nums) {
 
-        isValid("()");
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        leetcodeUtil util = new leetcodeUtil();
+        int[] a = {1,1,2};
+        util.removeDuplicates(a);
     }
 }
