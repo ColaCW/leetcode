@@ -4,22 +4,22 @@ import java.util.concurrent.locks.ReentrantLock;
 
 class Book {
 	int bookNum = 1;
-	private final Lock lock = new ReentrantLock();
 
+	//创建锁对象
+	private final Lock lock = new ReentrantLock();
+	
 	void onlySellOne() {
 		System.out.println(Thread.currentThread().getName() + " 进入书店 ");
 		System.out.println(Thread.currentThread().getName() + " 还剩 " + bookNum);
-		synchronized (this) {
-//			lock.lock();
-			if (bookNum > 0) {
-				System.out.println(Thread.currentThread().getName() + " 买书");
-				bookNum--;
-				System.out.println(Thread.currentThread().getName() + " 买走书 ，剩余" + bookNum);
-			} else {
-				System.out.println(Thread.currentThread().getName() + " 已经卖完了");
-			}
-//			lock.unlock();
+		lock.lock();
+		if (bookNum > 0) {
+			System.out.println(Thread.currentThread().getName() + " 买书");
+			bookNum--;
+			System.out.println(Thread.currentThread().getName() + " 买走书 ，剩余" + bookNum);
+		} else {
+			System.out.println(Thread.currentThread().getName() + " 已经卖完了");
 		}
+		lock.unlock();
 		System.out.println(Thread.currentThread().getName() + " 走出书店 ");
 	}
 }
